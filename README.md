@@ -2,7 +2,7 @@
 Research project on rule mining for the lecture Data Science
 
 
-## Instalation Manual
+## Installation Manual
 
 Use `git clone https://github.com/chalupka95/Data_Sciene-Rule_Mining` to download package.
 
@@ -11,11 +11,13 @@ Start Program with `python RuleMining.py -a fpgrowth -d entree`
 ### Needed Python Packeges:
 fpgrowth
   > pip install fpgrowth-py
+
 apriori
   > pip install apyori
 
 pprint
   > pip install pprint
+
 streamlit
   > pip install streamlit
 
