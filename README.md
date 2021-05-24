@@ -4,7 +4,8 @@ Research project on rule mining for the lecture Data Science
 
 
 Authors:
-  Lily Djami7478862
+  Lily Djami
+  7478862
   lily.djami@stud.uni-frankfurt.de
   Master, Semester 2
   
@@ -14,7 +15,8 @@ Authors:
   Master, Semester 3
   
   SeidaBasha
-  7392317s.basha@stud.uni-frankfurt.de
+  7392317
+  s.basha@stud.uni-frankfurt.de
   Master, Semester 3
 
 
