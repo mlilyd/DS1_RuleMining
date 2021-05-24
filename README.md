@@ -24,16 +24,16 @@ Start Program with `python RuleMining.py -a fpgrowth -d entree`
 
 ## Authors:
 Lily Djami, 7478862        - [Mail](mailto://lily.djami@stud.uni-frankfurt.de)
-  * Master, Semester 2
-    > Algorithm:  ECLAT
-    > Dataset:    [entree](http://kdd.ics.uci.edu/databases/entree/entree.html)
+  > Master, Semester 2
+    - Algorithm:  ECLAT
+    - Dataset:    [entree](http://kdd.ics.uci.edu/databases/entree/entree.html)
   
 Stefan Chalupka, 6037666   - [Mail](mailto://s7021955@stud.uni-frankfurt.de)
-  * Master, Semester 3
-    > Algorithm:  FP-Growth
-    > Dataset:     [accidents](http://fimi.uantwerpen.be/data/accidents.dat)
+  > Master, Semester 3
+    - Algorithm:  FP-Growth
+    - Dataset:     [accidents](http://fimi.uantwerpen.be/data/accidents.dat)
 
 Seida Basha, 7392317       - [Mail](mailto://s.basha@stud.uni-frankfurt.de)
-  * Master, Semester 3
-    > Algorithm:  Apriori 
-    > Dataset     [retail](http://fimi.uantwerpen.be/data/retail.dat)
+  > Master, Semester 3
+    - Algorithm:  Apriori 
+    - Dataset     [retail](http://fimi.uantwerpen.be/data/retail.dat)
