@@ -3,10 +3,10 @@ Research project on rule mining for the lecture Data Science
 
 
 ## Installation Manual
-
+"
 Use `git clone https://github.com/chalupka95/Data_Sciene-Rule_Mining` to download package.
 Start Program with `python RuleMining.py -a fpgrowth -d entree` 
-
+"
 
 ### Needed Python Packeges:
 - fpgrowth
