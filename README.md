@@ -1,21 +1,20 @@
-# Data_Sciene-Rule_Mining
+# Data Sciene - Rule Mining
 Research project on rule mining for the lecture Data Science
 
 
 #### Tasks
 1) Briefly describe the problem of rule mining in your own words; if you are a team, clearly mark which participant wrote which part of the text.
 
-2) Describe the a priori algorithm in your own words. Describe another itemset mining algorithm (like ECLAT, FPGrowth). 
-  [Note: if you are a team of n participants, choose and describe n algorithms; clearly mark which participant wrote which part of the text/described which algorithm]
+2) Describe the a priori algorithm in your own words. Describe another itemset mining algorithm (like ECLAT, FPGrowth).
 
-3) From a public data repository, choose (at least) two data sets that you can apply itemset mining on (e.g. 
-  https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research, 
-  http://archive.ics.uci.edu/ml/index.php,http://www.timeseriesclassification.com/dataset.php, 
-  http://kdd.ics.uci.edu/summary.data.application.html, 
-  http://fimi.uantwerpen.be/data/) 
-  and write a brief description of each of the datasets. 
-  [Note: if you are a team of n participants, choose and describe n data sets; clearly mark which participant wrote which part of the text/described which data set]
-
+3) From a public data repository, choose (at least) two data sets that you can apply itemset mining on and write a brief description of each of the datasets.
+   e.g. 
+    - https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research, 
+    - http://archive.ics.uci.edu/ml/index.php,http://www.timeseriesclassification.com/dataset.php, 
+    - http://kdd.ics.uci.edu/summary.data.application.html, 
+    - http://fimi.uantwerpen.be/data/) <br/>
+  
+  
 4) Choose public implementations (in Python) of A priori and the algorithm(s) chosen under 2), and apply them on the datasets chosen under 3) such that the support threshold     can be flexibly set as a parameter. Describe your implementation; if you are a team, clearly mark which participant wrote which part of the text.
 
 5) Implement an evaluation module that compares the outcomes of the 2 (or n) chosen algorithms with respect to average support, confidence, lift and conviction of the obtained   rules (again, the support threshold can be flexibly set as a parameter). Describe your implementation; if you are a team, clearly mark which participant wrote which part of     the text.
