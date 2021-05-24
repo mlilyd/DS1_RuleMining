@@ -18,10 +18,10 @@ Authors:
   Master, Semester 3
 
 
-Needed Python Packeges
+Needed Python Packeges:
   fpgrowth    
-    pip install fpgrowth-py
+    > pip install fpgrowth-py
   pprint
-    pip install pprint
+    > pip install pprint
   streamlit
-    pip install streamlit
+    > pip install streamlit
