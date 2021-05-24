@@ -18,8 +18,8 @@ Authors:
   Master, Semester 3
 
 
-Needed Python Packeges:
-  fpgrowth    
+# Needed Python Packeges:
+  fpgrowth
     > pip install fpgrowth-py
   pprint
     > pip install pprint
