@@ -1,6 +1,8 @@
 # Data_Sciene-Rule_Mining
 Research project on rule mining for the lecture Data Science
 
+
+
 Authors:
   Lily Djami7478862
   lily.djami@stud.uni-frankfurt.de
@@ -14,3 +16,12 @@ Authors:
   SeidaBasha
   7392317s.basha@stud.uni-frankfurt.de
   Master, Semester 3
+
+
+Needed Python Packeges
+  fpgrowth    
+    pip install fpgrowth-py
+  pprint
+    pip install pprint
+  streamlit
+    pip install streamlit
