@@ -27,3 +27,6 @@ Authors:
     > pip install pprint
   streamlit
     > pip install streamlit
+
+apriori
+  > pip install apyori
