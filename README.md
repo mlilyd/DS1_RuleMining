@@ -20,7 +20,8 @@ Lily Djami, 7478862        - [Mail](mailto://lily.djami@stud.uni-frankfurt.de)<b
   
 Stefan Chalupka, 6037666   - [Mail](mailto://s7021955@stud.uni-frankfurt.de)<br/>
  -> Algorithm:  FP-Growth<br/>
- -> Dataset:    [accidents](http://fimi.uantwerpen.be/data/accidents.dat)
+ -> Dataset:    [accidents](http://fimi.uantwerpen.be/data/accidents.dat)<br/>
+ Warning! Dataset is not Complete in this Project...to big for github
 
 Seida Basha, 7392317       - [Mail](mailto://s.basha@stud.uni-frankfurt.de)<br/>
 -> Algorithm:  Apriori<br/> 
