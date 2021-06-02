@@ -15,7 +15,7 @@ by Seida Basha, Stefan Chalupka, Lily Djami
 
 ds_selection = st.selectbox(
     'Select a dataset',
-    ["Entree Dataset", "Accidents", "Seida's"])
+    ["Entree Dataset", "Accidents", "Retail"])
 
 #dummy dataset for initialization
 dataset = pd.DataFrame()
@@ -24,7 +24,7 @@ if ds_selection == "Entree Dataset":
   dataset = read_entree_dataset()
 elif ds_selection == "Accidents":
   dataset = pd.DataFrame()
-elif ds_selection == "Seida's":
+elif ds_selection == "Retail":
   dataset = pd.DataFrame() 
 
 dataset
