@@ -28,7 +28,7 @@ Start Program with `python RuleMining.py -a fpgrowth -d entree`
 #### Needed Python Packeges:
 - fpgrowth, apriori, pprint, streamlit
   > pip install fpgrowth-py <br/>
-  > pip install apyori <br/>
+  > pip install mlxtend <br/>
   > pip install pprint <br/>
   > pip install streamlit <br/>
 
