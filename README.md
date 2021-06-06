@@ -1,4 +1,4 @@
-# Data Sciene - Rule Mining
+# Data Science - Rule Mining
 Research project on rule mining for the lecture Data Science
 
 
