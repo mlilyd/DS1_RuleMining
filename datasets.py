@@ -1,10 +1,17 @@
 import os
+import numpy as np
 import pandas as pd
 
 """
 reading Retail dataset
 by Seida Basha
 """
+def encode_units(x):
+    if x <= 0:
+        return 0
+    if x >= 1:
+        return 1
+        
 def retail_dataset():
     data = pd.read_excel('./Datasets/Online_Retail.xlsx')
 
@@ -24,16 +31,30 @@ def retail_dataset():
             .sum().unstack().reset_index().fillna(0)
             .set_index('InvoiceNo'))
 
-    def encode_units(x):
-        if x <= 0:
-            return 0
-        if x >= 1:
-            return 1
-
     basket_sets = basket.applymap(encode_units)
     basket_sets.drop('POSTAGE', inplace=True, axis=1)
     return basket_sets
 
+def retail_horizontal():
+    res = retail_dataset()
+    for colname in res.columns:
+        res[colname] = res[colname].replace(1, colname)
+        res[colname] = res[colname].replace(0, np.nan)
+    res = res.reset_index()
+    res = res.drop(['InvoiceNo'], axis=1)
+    res.columns = range(res.shape[1])
+
+    res2 = pd.DataFrame(columns=range(0, 200), index=range(0, len(res.index)))
+    for i in res.index:
+        t = res.loc[i][res.loc[i].notnull()]
+        #print(t)
+        #print(t.shape[0])
+        res2.loc[[i], 0:t.shape[0]-1] = list(t)
+        #print(res2.loc[i])
+
+    res2.dropna(how='all', axis=1, inplace=True)
+    res2.to_csv("Datasets/retai.csv")
+    return res2
 
 """
 reading Entree dataset
@@ -58,8 +79,7 @@ def entree_dataset():
     dir = "./Datasets/entree/"
     cols = [i for i in range(0, 30)]
     res = pd.read_csv(dir+"entree.csv", sep=" ", names=cols, engine='python')
-    res.fillna("-", inplace=True)
-    res.applymap(str)
+    res = res.applymap(float).applymap(str).replace('nan', np.nan)
     return res
 
 
