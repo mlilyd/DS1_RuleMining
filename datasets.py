@@ -39,7 +39,7 @@ def retail_dataset():
 reformat retail dataset to horizontal dataset so that it is compatible with eclat and fpgrowth
 by Lily Djami
 """
-def retail_horizontal():
+def prepare_retail_horizontal():
     res = retail_dataset()
     for colname in res.columns:
         res[colname] = res[colname].replace(1, colname)
@@ -57,8 +57,12 @@ def retail_horizontal():
         #print(res2.loc[i])
 
     res2.dropna(how='all', axis=1, inplace=True)
-    res2.to_csv("Datasets/retai.csv")
-    return res2
+    res2.to_csv("Datasets/online_retail_horizontal.csv")
+
+def retail_horizontal():
+    df = pd.read_csv("Datasets/online_retail_horizontal.csv")
+    df = df.drop(['Unnamed: 0'], axis=1)
+    return df
 
 """
 reading Entree dataset
