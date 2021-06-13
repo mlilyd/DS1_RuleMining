@@ -1,9 +1,10 @@
 import os
 import numpy as np
 import pandas as pd
+from pyECLAT import ECLAT
 
 """
-reading Retail dataset
+retail - apriori
 by Seida Basha
 """
 def encode_units(x):
@@ -36,7 +37,7 @@ def retail_dataset():
     return basket_sets
 
 """
-reformat retail dataset to horizontal dataset so that it is compatible with eclat and fpgrowth
+retail - eclat
 by Lily Djami
 """
 def prepare_retail_horizontal():
@@ -65,7 +66,7 @@ def retail_horizontal():
     return df
 
 """
-reading Entree dataset
+entree - eclat
 by Lily Djami
 """
 def prepare_entree_dataset():
@@ -90,9 +91,18 @@ def entree_dataset():
     res = res.applymap(float).applymap(str).replace('nan', np.nan)
     return res
 
+"""
+entree - apriori
+By Seida Basha
+"""
+def entree_bin():
+    df=entree_dataset()
+    t=ECLAT(data=df)
+    return t.df_bin
+
 
 """
-reading Accident dataset
+accident - fpgrowth
 by Stefan Chalupka
 """
 def accident_dataset():
@@ -109,7 +119,7 @@ def accident_dataset():
     return itemSetList
 
 """
-reformat accident dataset to horizontal dataset so that it is compatible with eclat
+accident - eclat
 by Lily Djami
 """
 def accident_df():
@@ -117,3 +127,12 @@ def accident_df():
     df = pd.DataFrame(ds)
     df = df.fillna(value=np.nan)
     return df
+
+"""
+accident - apriori
+By Seida Basha
+"""
+def accident_bin():
+    df=accident_df()
+    t=ECLAT(data=df)
+    return t.df_bin
