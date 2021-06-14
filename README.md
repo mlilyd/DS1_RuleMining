@@ -37,11 +37,6 @@ Lily Djami, 7478862        - [Mail](mailto://lily.djami@stud.uni-frankfurt.de)<b
 -> Algorithm:  ECLAT<br/>
 -> Dataset:    [entree](http://kdd.ics.uci.edu/databases/entree/entree.html)
   
-Stefan Chalupka, 6037666   - [Mail](mailto://s7021955@stud.uni-frankfurt.de)<br/>
- -> Algorithm:  FP-Growth<br/>
- -> Dataset:    [accidents](http://fimi.uantwerpen.be/data/accidents.dat)<br/>
- Warning! Dataset is not Complete in this Project...to big for github
-
 Seida Basha, 7392317       - [Mail](mailto://s.basha@stud.uni-frankfurt.de)<br/>
 -> Algorithm:  Apriori<br/> 
 -> Dataset     [retail](http://fimi.uantwerpen.be/data/retail.dat)
