@@ -3,21 +3,9 @@
 by Lily Djami
 """
 
-import pickle
-import pandas as pd
-import numpy as np
-
 from pyECLAT import ECLAT
-from rules import rules_from_support
 from datasets import entree_dataset, retail_horizontal, accident_df
-
-def save_results(res, filename):
-    with open(filename, 'wb') as f:
-        pickle.dump(res, filename)
-
-def load_results(filename):
-    return pickle.load(open(filename, 'rb'))
-
+from rules import save_results
 
 if __name__=="__main__":
 
