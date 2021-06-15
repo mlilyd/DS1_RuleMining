@@ -5,7 +5,7 @@ import time
 
 
 #import dataset reading functions from other modules
-from entree import read_entree_dataset
+from datasets import *
 
 """
 # Data Science 1 Project: Rule Mining
@@ -21,11 +21,9 @@ ds_selection = st.selectbox(
 dataset = pd.DataFrame()
 
 if ds_selection == "Entree Dataset":
-  dataset = read_entree_dataset()
-elif ds_selection == "Accidents":
-  dataset = pd.DataFrame()
+  dataset = entree_dataset()
 elif ds_selection == "Retail":
-  dataset = pd.DataFrame() 
+  dataset = retail_dataset() 
 
 dataset
 
