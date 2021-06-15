@@ -11,7 +11,7 @@ loading and saving results using pickle
 '''
 def save_results(res, filename):
     with open(filename, 'wb') as f:
-        pickle.dump(res, filename)
+        pickle.dump(res, f)
 
 def load_results(filename):
     return pickle.load(open(filename, 'rb'))
