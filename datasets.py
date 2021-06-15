@@ -63,6 +63,7 @@ def prepare_retail_horizontal():
 def retail_horizontal():
     df = pd.read_csv("Datasets/online_retail_horizontal.csv")
     df = df.drop(['Unnamed: 0'], axis=1)
+    df.columns = range(0, df.shape[1])
     return df
 
 """
