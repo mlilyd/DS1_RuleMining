@@ -19,7 +19,7 @@ def load_results(filename):
 '''
 create association rules using support from ECLAT
 '''
-def rules_from_support(support, min_support, separator=" & "):
+def rules_from_support(support, min_support=0, separator=" & "):
     df = pd.DataFrame.from_dict(support, orient="index").reset_index()
     df = df.rename(columns={"index": "itemsets", 0: "support"})
     df['itemsets'] = [frozenset(i.split(separator)) for i in df['itemsets']]
