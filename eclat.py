@@ -24,14 +24,14 @@ if __name__=="__main__":
     
     #'''
     print("Calculating support for dataset: Retail wtih ECLAT")
-    retail_support = retail_eclat.fit_all(verbose=True)
-    print("Finished calculaing support! Saving results to ECLAT\\retail_all.support")
+    retail_support = retail_eclat.fit_all(min_support=0.04, verbose=True)
+    print("Finished calculaing support! Saving results to ECLAT\\retail_0.04.support")
     save_results(retail_support[1], "ECLAT\\retail_all.support")
     print("Saved!")
     
     print("Calculating support for dataset: Entree WITH ECLAT")
-    entree_support = entree_eclat.fit_all(verbose=True)
-    print("Finished calculaing support! Saving results to ECLAT\\entree_all.support")
+    entree_support = entree_eclat.fit_all(min_support=0.1, verbose=True)
+    print("Finished calculaing support! Saving results to ECLAT\\entree_0.1.support")
     save_results(entree_support[1], "ECLAT\\entree_all.support")
     print("Saved!") 
     #'''
