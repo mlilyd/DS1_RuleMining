@@ -2,56 +2,112 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import time
-
+import plotly.express as px
 
 #import dataset reading functions from other modules
 from datasets import *
+from rules import *
 
 """
 # Data Science 1 Project: Rule Mining
-by Seida Basha, Stefan Chalupka, Lily Djami
+by Seida Basha, Lily Djami
 """
-
 
 ds_selection = st.selectbox(
     'Select a dataset',
-    ["Entree", "Retail"])
+    ["Retail", "Entree"])
 
-#dummy dataset for initialization
-dataset = pd.DataFrame()
 
-if ds_selection == "Entree Dataset":
+retail_apriori = load_results("Apriori\\apr_retail_0.04.support")
+entree_apriori = load_results("Apriori\\apr_entree_0.1.support")
+
+retail_eclat = load_results("ECLAT\\retail_0.05.support")
+entree_eclat = load_results("ECLAT\\entree_0.1.support")
+
+retail_eclat_rules = rules_from_support(retail_eclat[1])
+retail_apriori_rules = association_rules(retail_apriori, min_threshold = 0)
+
+rule_str(retail_eclat_rules)
+rule_str(retail_apriori_rules)
+retail_eclat_rules = retail_eclat_rules.sort_values('rule')
+retail_apriori_rules = retail_apriori_rules.sort_values('rule')
+
+entree_eclat_rules = rules_from_support(entree_eclat[1])
+entree_apriori_rules = association_rules(entree_apriori, min_threshold = 0)
+
+rule_str(entree_eclat_rules)
+rule_str(entree_apriori_rules)
+entree_eclat_rules = entree_eclat_rules.sort_values('rule')
+entree_apriori_rules = entree_apriori_rules.sort_values('rule')
+
+if ds_selection == "Entree":
   dataset = entree_dataset()
+  res_apriori=entree_apriori_rules
+  res_eclat=entree_eclat_rules
 elif ds_selection == "Retail":
   dataset = retail_dataset() 
+  res_apriori=retail_apriori_rules
+  res_eclat=retail_eclat_rules
 
 dataset
+rules_selection = st.selectbox(
+    'Select an algorithm',
+    ["Apriori", "ECLAT"])
 
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40]
-})
+if rules_selection=="Apriori":
+  rules = res_apriori
+else:
+  rules = res_eclat
 
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
+rules[['rule','support','confidence','lift','conviction']]
 
-st.line_chart(chart_data)
+entree_joined = pd.merge(entree_eclat_rules, entree_apriori_rules, on="rule", suffixes=("_eclat", "_apriori"))
+entree_joined = entree_joined.sort_values('rule')
 
-'Starting a long computation...'
+retail_joined = pd.merge(retail_eclat_rules, retail_apriori_rules[retail_apriori_rules['support']>0.05], on="rule", suffixes=("_eclat", "_apriori"))
+retail_joined = retail_joined.sort_values('rule')
 
-# Add a placeholder
-latest_iteration = st.empty()
-bar = st.progress(0)
+st.subheader("Average Support")
+avg_apr_entree= entree_apriori_rules['support'].mean()
+avg_apr_retail=retail_apriori_rules['support'].mean()
+avg_ecl_retail=retail_eclat_rules['support'].mean()
+avg_ecl_entree=entree_eclat_rules['support'].mean()
 
-for i in range(100):
-  # Update the progress bar with each iteration.
-  latest_iteration.text(f'Iteration {i+1}')
-  bar.progress(i + 1)
-  time.sleep(0.1)
+from plotly.offline import iplot, init_notebook_mode
+init_notebook_mode(connected = True)
+import plotly.graph_objs as go
+pielabel = ['Average support for entree with apriori','Average support for retail with apriori','Average support for retail with ECLAT',
+'Average support for entree with ECLAT']
+data = [avg_apr_entree, avg_apr_retail, avg_ecl_retail, avg_ecl_entree]
+trace = go.Pie(labels = pielabel, values = data)
+data = [trace]
+fig = go.Figure(data = data)
+iplot(fig)
 
-'...and now we\'re done!'
 
-    
+st.subheader("Confidence")
+if ds_selection=='Entree':
+  fig = px.line(entree_joined, y=['confidence_apriori', 'confidence_eclat'], labels={'index':'Rule Index', 'value':'Confidence'}, template='plotly_dark')
+  st.write(fig)
 
+else:
+  fig = px.line(retail_joined, y=['confidence_apriori', 'confidence_eclat'], labels={'index':'Rule Index', 'value':'Confidence'}, template='plotly_dark')
+  st.write(fig)
 
+st.subheader("Lift")
+if ds_selection=='Entree':
+  fig = px.scatter(entree_joined, y=['lift_apriori', 'lift_eclat'], labels={'index':'Rule Index', 'value':'Lift'}, template='plotly_dark')
+  st.write(fig)
+
+else:
+  fig = px.scatter(retail_joined, y=['lift_apriori', 'lift_eclat'], labels={'index':'Rule Index', 'value':'Lift'}, template='plotly_dark')
+  st.write(fig)
+
+st.subheader("Conviction")
+if ds_selection=='Entree':
+  fig = px.scatter(entree_joined, y=['conviction_apriori', 'conviction_eclat'], labels={'index':'Rule Index', 'value':'Conviction'}, template='plotly_dark')
+  st.write(fig)
+
+else:
+  fig = px.scatter(retail_joined, y=['conviction_apriori', 'conviction_eclat'], labels={'index':'Rule Index', 'value':'Conviction'}, template='plotly_dark')
+  st.write(fig)
