@@ -8,7 +8,7 @@ from mlxtend.frequent_patterns import apriori, association_rules
 
 # Building the model
 frq_items = apriori(retail_dataset(), min_support = 0.05, use_colnames = True)
-save_results(frq_items, 'Apriori//apr_retail_0.02.support')
+save_results(frq_items, 'Apriori//apr_retail_0.05.support')
 
 #frq_items_1 = apriori(entree_bin(), min_support = 0.1, use_colnames = True)
 save_results(frq_items_1, 'Apriori//apr_entree_0.1.support')
