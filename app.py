@@ -15,7 +15,7 @@ by Seida Basha, Stefan Chalupka, Lily Djami
 
 ds_selection = st.selectbox(
     'Select a dataset',
-    ["Entree Dataset", "Accidents", "Retail"])
+    ["Entree", "Retail"])
 
 #dummy dataset for initialization
 dataset = pd.DataFrame()
@@ -26,17 +26,6 @@ elif ds_selection == "Retail":
   dataset = retail_dataset() 
 
 dataset
-
-"""
-Here are some examples for Streamlit
-"""
-algorithm = st.selectbox(
-    'Choose an algorithm',
-    ["A-Priori", "ECLAT", "FP-Growth"])
-
-
-'You selected:', algorithm
-
 
 df = pd.DataFrame({
   'first column': [1, 2, 3, 4],
