@@ -74,10 +74,10 @@ avg_ecl_retail=retail_eclat_rules['support'].mean()
 avg_ecl_entree=entree_eclat_rules['support'].mean()
 
 mean = pd.DataFrame()
-mean['label'] = ['Average support for entree with apriori','Average support for retail with apriori','Average support for retail with ECLAT','Average support for entree with ECLAT']
+mean['label'] = ['Entree with Apriori','Retail with Apriori','Retail with ECLAT','Entree with ECLAT']
 mean['mean'] = [avg_apr_entree, avg_apr_retail, avg_ecl_retail, avg_ecl_entree]
-
-fig = px.pie(mean, values='mean', names='label', color_discrete_sequence=px.colors.sequential.RdBu)
+color_discrete_map={'Entree with apriori':'maroon','Retail with apriori':'red','Retail with ECLAT':'royalblue','Entree with ECLAT':'darkblue'}
+fig = px.pie(mean, values='mean', names='label', color_discrete_sequence=['#B03A2E', '#EC7063', '#2874A6', '#5DADE2'])
 fig.update_traces(textinfo='value')
 st.write(fig)
 
