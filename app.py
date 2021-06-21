@@ -21,10 +21,10 @@ ds_selection = st.selectbox(
 retail_apriori = load_results("Apriori\\apr_retail_0.04.support")
 entree_apriori = load_results("Apriori\\apr_entree_0.1.support")
 
-retail_eclat = load_results("ECLAT\\retail_0.05.support")
+retail_eclat = load_results("ECLAT\\retail_2_0.04.support")
 entree_eclat = load_results("ECLAT\\entree_0.1.support")
 
-retail_eclat_rules = rules_from_support(retail_eclat[1])
+retail_eclat_rules = rules_from_support(retail_eclat)
 retail_apriori_rules = association_rules(retail_apriori, min_threshold = 0)
 
 rule_str(retail_eclat_rules)
@@ -77,34 +77,32 @@ mean = pd.DataFrame()
 mean['label'] = ['Entree with Apriori','Retail with Apriori','Retail with ECLAT','Entree with ECLAT']
 mean['mean'] = [avg_apr_entree, avg_apr_retail, avg_ecl_retail, avg_ecl_entree]
 color_discrete_map={'Entree with apriori':'maroon','Retail with apriori':'red','Retail with ECLAT':'royalblue','Entree with ECLAT':'darkblue'}
-fig = px.pie(mean, values='mean', names='label', color_discrete_sequence=['#B03A2E', '#EC7063', '#2874A6', '#5DADE2'])
+fig = px.pie(mean, values='mean', names='label', color_discrete_sequence=['#B03A2E', '#2874A6', '#5DADE2', '#EC7063' ])
 fig.update_traces(textinfo='value')
 st.write(fig)
 
 
-st.subheader("Confidence")
 if ds_selection=='Entree':
-  fig = px.line(entree_joined, y=['confidence_apriori', 'confidence_eclat'], labels={'index':'Rule Index', 'value':'Confidence'}, template='plotly_dark')
+  fig = px.line(entree_joined, y=['confidence_apriori', 'confidence_eclat'], labels={'index':'Rule Index', 'value':'Confidence'}, title="Confidence from {} Dataset".format(ds_selection), template='plotly_dark')
   st.write(fig)
-
 else:
-  fig = px.line(retail_joined, y=['confidence_apriori', 'confidence_eclat'], labels={'index':'Rule Index', 'value':'Confidence'}, template='plotly_dark')
+  fig = px.line(retail_joined, y=['confidence_apriori', 'confidence_eclat'], labels={'index':'Rule Index', 'value':'Confidence'},title="Confidence from {} Dataset".format(ds_selection), template='plotly_dark')
   st.write(fig)
 
-st.subheader("Lift")
+
 if ds_selection=='Entree':
-  fig = px.scatter(entree_joined, y=['lift_apriori', 'lift_eclat'], labels={'index':'Rule Index', 'value':'Lift'}, template='plotly_dark')
+  fig = px.scatter(entree_joined, y=['lift_apriori', 'lift_eclat'], labels={'index':'Rule Index', 'value':'Lift'}, 
+  title="Lift from {} Dataset".format(ds_selection), template='plotly_dark')
+  
   st.write(fig)
-
 else:
-  fig = px.scatter(retail_joined, y=['lift_apriori', 'lift_eclat'], labels={'index':'Rule Index', 'value':'Lift'}, template='plotly_dark')
+  fig = px.scatter(retail_joined, y=['lift_apriori', 'lift_eclat'], labels={'index':'Rule Index', 'value':'Lift'},title="Lift from {} Dataset".format(ds_selection), template='plotly_dark')
   st.write(fig)
 
-st.subheader("Conviction")
+
 if ds_selection=='Entree':
-  fig = px.scatter(entree_joined, y=['conviction_apriori', 'conviction_eclat'], labels={'index':'Rule Index', 'value':'Conviction'}, template='plotly_dark')
+  fig = px.scatter(entree_joined, y=['conviction_apriori', 'conviction_eclat'], labels={'index':'Rule Index', 'value':'Conviction'},title="Conviction from {} Dataset".format(ds_selection), template='plotly_dark')
   st.write(fig)
-
 else:
-  fig = px.scatter(retail_joined, y=['conviction_apriori', 'conviction_eclat'], labels={'index':'Rule Index', 'value':'Conviction'}, template='plotly_dark')
+  fig = px.scatter(retail_joined, y=['conviction_apriori', 'conviction_eclat'], labels={'index':'Rule Index', 'value':'Conviction'}, title="Conviction from {} Dataset".format(ds_selection), template='plotly_dark')
   st.write(fig)
