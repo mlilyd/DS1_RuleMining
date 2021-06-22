@@ -1,3 +1,8 @@
+"""
+# Data Science 1 Project: Rule Mining
+by Stefan Chalupka
+"""
+
 from fpgrowth_py.fpgrowth import fpgrowth
 from fpgrowth_py.utils import *
 import pprint as pprint

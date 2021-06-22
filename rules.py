@@ -26,7 +26,9 @@ def rules_from_support(support, min_support=0, separator=" & "):
     rules = association_rules(df, min_threshold=min_support)
     return rules
 
-
+'''
+convert antecedent and consequent in rule as string to enable join
+'''
 def frozenset_to_str(t):
     t = list(t)
     t.sort()

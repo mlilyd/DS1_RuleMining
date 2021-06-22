@@ -1,3 +1,6 @@
+#by Seida Basha, Lily Djami
+#both authors contributed equally to this file
+
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -10,7 +13,7 @@ from rules import *
 
 """
 # Data Science 1 Project: Rule Mining
-by Seida Basha, Lily Djami
+by Seida Basha, Lily Djami 
 """
 
 ds_selection = st.selectbox(

@@ -21,7 +21,13 @@ Research project on rule mining for the lecture Data Science
 
 6) Implement a simple web frontend (e.g. using streamlit or svelte) to select the data sets, visualize the data sets, set parameters (like support threshold) and display the     obtained rules (from 4)) as well as the comparison (from 5)) of the two (or n) algorithms. Describe the implementation and write a brief user manual with screenshots; if you   are a team, clearly mark which participant wrote which part of the text.
 
-## Installation Manual
+## Running the app
+
+The web frontend can be run with the following command
+
+```
+streamlit run app.py
+```
 
 
 #### Needed Python Packeges:
@@ -36,3 +42,8 @@ Lily Djami, 7478862        - [Mail](mailto://lily.djami@stud.uni-frankfurt.de)<b
 Seida Basha, 7392317       - [Mail](mailto://s.basha@stud.uni-frankfurt.de)<br/>
 -> Algorithm:  Apriori<br/> 
 -> Dataset     [retail](http://fimi.uantwerpen.be/data/retail.dat)
+
+Stefan Chalupka, 6037666   - [Mail](mailto://s7021955@stud.uni-frankfurt.de) (Dropped the class)<br/>
+ -> Algorithm:  FP-Growth<br/>
+ -> Dataset:    [accidents](http://fimi.uantwerpen.be/data/accidents.dat)<br/>
+ Warning! Dataset is not Complete in this Project...to big for github
