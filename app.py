@@ -21,7 +21,7 @@ ds_selection = st.selectbox(
 retail_apriori = load_results("Apriori\\apr_retail_0.04.support")
 entree_apriori = load_results("Apriori\\apr_entree_0.1.support")
 
-retail_eclat = load_results("ECLAT\\retail_2_0.04.support")
+retail_eclat = load_results("ECLAT\\retail_0.04.support")
 entree_eclat = load_results("ECLAT\\entree_0.1.support")
 
 retail_eclat_rules = rules_from_support(retail_eclat)
