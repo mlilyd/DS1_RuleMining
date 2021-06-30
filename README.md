@@ -31,7 +31,10 @@ streamlit run app.py
 
 
 #### Needed Python Packeges:
-- mlxtend, pyECLAT, streamlit
+- [mlxtend](https://github.com/rasbt/mlxtend) 
+- [pyECLAT](https://github.com/jeffrichardchemistry/pyECLAT)
+- [streamlit](https://streamlit.io)
+
   > pip install mlxtend pyECLAT streamlit <br/>
 
 ## Authors:
@@ -41,7 +44,7 @@ Lily Djami, 7478862        - [Mail](mailto://lily.djami@stud.uni-frankfurt.de)<b
   
 Seida Basha, 7392317       - [Mail](mailto://s.basha@stud.uni-frankfurt.de)<br/>
 -> Algorithm:  Apriori<br/> 
--> Dataset     [retail](http://fimi.uantwerpen.be/data/retail.dat)
+-> Dataset     [retail](http://archive.ics.uci.edu/ml/datasets/Online+Retail)
 
 Stefan Chalupka, 6037666   - [Mail](mailto://s7021955@stud.uni-frankfurt.de) (Dropped the class)<br/>
  -> Algorithm:  FP-Growth<br/>
